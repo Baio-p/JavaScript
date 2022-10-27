@@ -1,4 +1,4 @@
-# JavaScript
+# Java
 Practicas para Java
 
 Al final de cada instruccion se debe finalizar con ";".
