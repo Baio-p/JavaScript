@@ -1,9 +1,8 @@
-
-public class character {
+public class Char {
     public static void main(String[] args) {
         //Benjamin
-        String primerLetra;
-        primerLetra = "B";
+        char primerLetra;
+        primerLetra = 'B';
         System.out.println(primerLetra);
     } 
 }
