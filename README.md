@@ -47,3 +47,5 @@ se crean despues de ina nstancia, osea hasta que se instancie un objeto, fuera d
 
 las variables estaticas son variables que se cran una sola vez, se guardan y se repiten cada vez que son llamadas. Si esa variable se modifica, tambien cambia el valor en todos los lugares en los que haya sido llamada.
 
+Los ciclos for-each se hacen sobre objetos o daos ya establecidos.
+
