@@ -6,10 +6,11 @@ public class Principal{
     public static void main(String[] args) {
 
         System.out.println("ingresa tu nombre");
-        Condicionales saludo = new Condicionales();
-        System.out.print(saludo);
+        Condicionales condicionales = new Condicionales("Benjamin");
+        System.out.println(condicionales);
 
-        
+        condicionales.Ejer7();
+
     }
 
 }

@@ -6,9 +6,8 @@ public class Condicionales {
     
     private static Scanner leer = new Scanner(System.in);
     
-    public Condicionales() {
+    public Condicionales(String nombre) {
          // inicializar variables o instrucciones de la clase
-        String nombre = leer.nextLine();
         System.out.println("Hola " +nombre+" desde el constructor");
     }
 
@@ -52,16 +51,18 @@ public class Condicionales {
      * cero el programa debe mostrar un error.
      * @return Muestra el esultado de la division.
      */
-    public String Ejer3() {
-
-        int n1 = leer.nextInt();
-        int n2 = leer.nextInt();
-
-        if (n2>0) {
-            int division = n1/n2;
-            return "el resultado es " + division;
+    public void Ejer3() {
+        System.out.println("Dividamos dos numeros cualesquiera \ningresa un numero");
+        float n1 = leer.nextInt();
+        System.out.println("entre que numero lo quieres dividir ?");
+        float n2 = leer.nextInt();
+        if (n2!=0) {
+            float division = n1/n2;
+            System.out.println("el resultado es "+ division);
+            
         } else {
-            return "Error";
+            System.out.println("error");
+            
         }
     }
 
@@ -70,9 +71,11 @@ public class Condicionales {
      * pantalla si es par o impar.
      * @return Muestra si tu numero es par o impar.
      */
-    public String Ejer4() {
+    public void Ejer4() {
+        System.out.println("Revisemos numeros pares e impares \n ingresa un numero entero");
         int numEnt = leer.nextInt();
-        return ((numEnt % 2 == 0) ? "Tu numero es par" : "Tu numero es impar");
+        System.out.println((numEnt % 2 == 0) ? "Tu numero es par" : "Tu numero es impar");
+        return;
     }
 
     /**
@@ -82,11 +85,13 @@ public class Condicionales {
      * muestre por pantalla si el usuario tiene que pagar o no.
      * @return Muestra si puedes pagar impuestos o no.
      */
-    public String Ejer5() {
+    public void Ejer5() {
+        System.out.println("Veamos si puedes pagar impuestos\n que edad tienes ?");
         int edad = leer.nextInt();
+        System.out.println("cuanto ganas mensualmente?");
         float ingMens = leer.nextFloat();
-
-        return (edad >= 16 && ingMens >= 5000.00) ? "Puedes pagar impuestos" : "No puedes pagar impuestos";
+        System.out.println((edad >= 16 && ingMens >= 5000.00) ? "Puedes pagar impuestos" : "No puedes pagar impuestos");
+        return;
     }
 
     // public String Ejer6() {
@@ -117,7 +122,9 @@ public class Condicionales {
     usuario.
      * @return Muestra el nivel de puntuacion y la cantidad recibida.
      */
-    public  String Ejer7() {
+    public  void Ejer7() {
+        System.out.println("Veamos tu nivel de rendimiento laboral segun tu puntaje \ningresa tu puntuacion");
+        System.out.println("0.0 ? \n 0.4 ? \n 0.6 o mas ?");
         float puntos = leer.nextFloat();
         double dineroRec = puntos * 2400;
         if (puntos == 0.0) {
@@ -129,29 +136,55 @@ public class Condicionales {
         else if (puntos >= 0.6) {
             System.out.println("Meritorio");
         }
-        return "La cantidad recibida es " + dineroRec;
+        System.out.println("Te daremos " + dineroRec + " por tu rendimiento");
+        return;
     }
 
-    public String Ejer8() {
-        String ingrediente;
-        String basePizza = "tomate y mozzarella";
-        String tipoPizza = leer.nextLine();
-        System.out.println("Todas nuestras pizzas llevan tomate y mozzarella");
-        if (tipoPizza == "Vegetariana") {
-            System.out.println("¿Cual ingrediente quieres para tu pizza?\n" + 
-                                "Pimineto \n" +
-                                "Tofu");
-            ingrediente = leer.nextLine();
-        } else if (tipoPizza == "No vegetariana") {
-            System.out.println("¿Cual ingrediente quieres para tu pizza?\n" + 
-                                "Peperoni \n" +
-                                "Jamon \n" +
-                                "Salmon");
-            ingrediente = leer.nextLine();
+    /**
+     * Ejercicio 8
+Escribir un programa para una empresa que tiene salas de juegos para todas las 
+edades y quiere calcular de forma automática el precio que debe cobrar a sus clientes 
+por entrar. El programa debe preguntar al usuario la edad del cliente y mostrar el precio 
+de la entrada. Si el cliente es menor de 4 años puede entrar gratis, si tiene entre 4 y 18 años 
+debe pagar $5 y si es mayor de 18 años, $10.
+     * 
+     */
+    public void Ejer8() {
+        System.out.println("Para jugar en alguna de mis salas me debes decir primero tu edad \nque edad tienes ?");
+        int edad = leer.nextInt();
+        if (edad < 4) {
+            System.out.println("Tu entras gratis");
+        } else if (edad >= 4 && edad <= 18) {
+            System.out.println("La entrada cuesta $5 pesos");
         } else {
-            System.out.println("No manejamos ese tipo de pizza");     
+            System.out.println("La entrada cuesta $10 pesos");
         }
-        return "Tu pizza " + tipoPizza + " es de " + ingrediente +" con " + basePizza;
+        return;
     }
+
+
+
+
+//     public String Ejer9() {
+//         String ingrediente;
+//         String basePizza = "tomate y mozzarella";
+//         String tipoPizza = leer.nextLine();
+//         System.out.println("Todas nuestras pizzas llevan tomate y mozzarella");
+//         if (tipoPizza == "Vegetariana") {
+//             System.out.println("¿Cual ingrediente quieres para tu pizza?\n" + 
+//                                 "Pimineto \n" +
+//                                 "Tofu");
+//             ingrediente = leer.nextLine();
+//         } else if (tipoPizza == "No vegetariana") {
+//             System.out.println("¿Cual ingrediente quieres para tu pizza?\n" + 
+//                                 "Peperoni \n" +
+//                                 "Jamon \n" +
+//                                 "Salmon");
+//             ingrediente = leer.nextLine();
+//         } else {
+//             System.out.println("No manejamos ese tipo de pizza");     
+//         }
+//         return "Tu pizza " + tipoPizza + " es de " + ingrediente +" con " + basePizza;
+//     }
 }
 
