@@ -34,11 +34,10 @@ public class Condicionales {
      * mayúsculas y minúsculas.
      * @return Muestra si la contraseña es correcta o incorrecta.
      */
-    public String Ejer2() {
-
-        String passBD = "password";
+    public String Ejer2(String passDB) {
+        
         String passUser = leer.nextLine();
-        if (passBD.equals(passUser)){
+        if (passDB.equals(passUser)){
             return "La contraseña es correcta";
         } else {
             return "La contraseña es incorrecta";
@@ -52,12 +51,13 @@ public class Condicionales {
      * @return Muestra el esultado de la division.
      */
     public void Ejer3() {
-        System.out.println("Dividamos dos numeros cualesquiera \ningresa un numero");
-        float n1 = leer.nextInt();
+        System.out.println("Dividamos dos numeros cualesquiera \n"+
+                            "ingresa un numero");
+        float dividendo = leer.nextInt();
         System.out.println("entre que numero lo quieres dividir ?");
-        float n2 = leer.nextInt();
-        if (n2!=0) {
-            float division = n1/n2;
+        float divisor = leer.nextInt();
+        if (divisor!=0) {
+            float division = dividendo/divisor;
             System.out.println("el resultado es "+ division);
             
         } else {
@@ -75,7 +75,6 @@ public class Condicionales {
         System.out.println("Revisemos numeros pares e impares \n ingresa un numero entero");
         int numEnt = leer.nextInt();
         System.out.println((numEnt % 2 == 0) ? "Tu numero es par" : "Tu numero es impar");
-        return;
     }
 
     /**
@@ -86,7 +85,8 @@ public class Condicionales {
      * @return Muestra si puedes pagar impuestos o no.
      */
     public void Ejer5() {
-        System.out.println("Veamos si puedes pagar impuestos\n que edad tienes ?");
+        System.out.println("Veamos si puedes pagar impuestos\n" + 
+                            "que edad tienes ?");
         int edad = leer.nextInt();
         System.out.println("cuanto ganas mensualmente?");
         float ingMens = leer.nextFloat();
@@ -94,6 +94,12 @@ public class Condicionales {
         return;
     }
 
+    /*
+     *Ejercicio 6
+    Los alumnos de un curso se han dividido en dos grupos A y B de acuerdo al sexo y el nombre. El grupo A esta formado por 
+    las mujeres con un nombre anterior a la M y los hombres con un nombre posterior a la N y el grupo B por el resto. 
+    Escribir un programa que pregunte al usuario su nombre y sexo, y muestre por pantalla el grupo que le corresponde.
+     */
     // public String Ejer6() {
         
     //     char inicial = leer.next().charAt(0);
