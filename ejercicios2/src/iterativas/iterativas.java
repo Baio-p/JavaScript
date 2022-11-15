@@ -1,5 +1,5 @@
 // creamos el package que seria la ruta de donde se va a ejecutar nuestro proyecto
-package Iterativas;
+package iterativas;
 //importamos las clases que vayamos a utilizar para nuestro proyecto definiendo ruta.objeto
 import java.util.Scanner;
 
@@ -63,6 +63,7 @@ public class Iterativas {
     } 
 
     public void Ejer2() {
+        float suma = 0;
         
     }
 } 
