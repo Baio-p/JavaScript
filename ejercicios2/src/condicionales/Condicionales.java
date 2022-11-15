@@ -100,12 +100,18 @@ public class Condicionales {
     las mujeres con un nombre anterior a la M y los hombres con un nombre posterior a la N y el grupo B por el resto. 
     Escribir un programa que pregunte al usuario su nombre y sexo, y muestre por pantalla el grupo que le corresponde.
      */
-    // public String Ejer6() {
-        
-    //     char inicial = leer.next().charAt(0);
-    //     char sexo = leer.next().charAt(0);
+    public void Ejer6() {
+        System.out.println("ingresa tu nombre");
+        char nombre = leer.next().charAt(0);
+        System.out.println("ingresa tu homoclave");
+        char genero = leer.next().charAt(0);
 
-    //}
+        if ((genero == 'M' && nombre < 'M') || (genero == 'H' && nombre > 'M')) {
+            System.out.println("eres del grupo A");
+        } else {
+            System.out.println("eres del grupo B");
+        }
+    }
 
     /**
      * En una determinada empresa, sus empleados son evaluados al final
@@ -168,29 +174,60 @@ debe pagar $5 y si es mayor de 18 años, $10.
         return;
     }
 
+/*
+ * Ejercicio 9
+La pizzería Planeta ofrece pizzas vegetarianas y no vegetarianas a sus clientes. Los ingredientes para cada tipo de pizza aparecen a continuación.
 
+Vegetarianos: Pimiento y tofu.
+No vegetarianos: Peperoni, Jamón y Salmón.
 
+Escribir un programa que pregunte al usuario si quiere una pizza vegetariana o no, y en función de su respuesta
+le muestre un menú con los ingredientes disponibles para que elija. Solo se puede eligir un ingrediente además 
+de la mozzarella y el tomate que están en todas la pizzas. Al final se debe mostrar por pantalla si la pizza 
+elegida es vegetariana o no y todos los ingredientes que lleva.
+ */
 
-//     public String Ejer9() {
-//         String ingrediente;
-//         String basePizza = "tomate y mozzarella";
-//         String tipoPizza = leer.nextLine();
-//         System.out.println("Todas nuestras pizzas llevan tomate y mozzarella");
-//         if (tipoPizza == "Vegetariana") {
-//             System.out.println("¿Cual ingrediente quieres para tu pizza?\n" + 
-//                                 "Pimineto \n" +
-//                                 "Tofu");
-//             ingrediente = leer.nextLine();
-//         } else if (tipoPizza == "No vegetariana") {
-//             System.out.println("¿Cual ingrediente quieres para tu pizza?\n" + 
-//                                 "Peperoni \n" +
-//                                 "Jamon \n" +
-//                                 "Salmon");
-//             ingrediente = leer.nextLine();
-//         } else {
-//             System.out.println("No manejamos ese tipo de pizza");     
-//         }
-//         return "Tu pizza " + tipoPizza + " es de " + ingrediente +" con " + basePizza;
-//     }
+    public void Ejer9() {
+        System.out.println("todas nuestras pizzas llevan queso mozzarella y tomate" +
+                            "\n quieres una pizza vegetariana ?");
+        char tipoPizza = leer.next().charAt(0);
+        if (tipoPizza == 'S'){
+            System.out.println("Elije una de nuestras opciones vegetarianas:\n" +
+                            "1:Pimineto \n"+ 
+                            "2:Tofu");
+            int ingrediente = leer.nextInt();
+            switch (ingrediente){
+                case 1:
+                    System.out.println("Tu pizza vegetariana es de Pimiento con tomate y Mozzarella");
+                    break;
+                case 2:
+                    System.out.println("Tu pizza vegetariana es de Tofu con tomate y Mozzarella");
+                    break;
+                default:
+                    System.out.println("no tenemos ese ingrediente");
+                    break;
+            }
+        } else {
+            System.out.println("Elije una de nuestras opciones no vegetarianas:\n" +
+                            "1:Peperoni \n"+ 
+                            "2:Jamon \n"+
+                            "3:Salmón");
+            int ingrediente = leer.nextInt();
+            switch (ingrediente){
+                case 1:
+                    System.out.println("Tu pizza no vegetariana es de Pimiento con tomate y Mozzarella");
+                    break;
+                case 2:
+                    System.out.println("Tu pizza no vegetariana es de Jamon con tomate y Mozzarella");
+                    break;
+                case 3:
+                    System.out.println("Tu pizza no vegetariana es de Salmon con tomate y Mozzarella");
+                    break;
+                default:
+                    System.out.println("no tenemos ese ingrediente");
+                    break;
+            }
+        }
+    }
 }
 

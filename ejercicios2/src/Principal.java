@@ -1,5 +1,6 @@
 
 
+import Iterativas.Iterativas;
 import condicionales.Condicionales;
 
 public class Principal{
@@ -9,7 +10,10 @@ public class Principal{
         Condicionales condicionales = new Condicionales("Benjamin");
         System.out.println(condicionales);
 
-        condicionales.Ejer7();
+        Iterativas iterativas = new Iterativas();
+
+        /*condicionales.Ejer9();*/
+        iterativas.Ejer1();
 
     }
 
