@@ -99,11 +99,11 @@ public class Iterativas {
     public void Ejer3() {
         int poblacionCiudad = 0;
         int poblacionMax = 0;
-        String estadoMax[] = new String [0];
-        String ciudadMax[] = new String [0];
+        String estadoMax[] = new String [1];
+        String ciudadMax[] = new String [1];
         String nombreEstado[] = new String [2];
         String nombreCiudad[] = new String [10];
-        for (int estado = 0; estado == 2; estado++) {
+        for (int estado = 0; estado < 2; estado++) {
             System.out.println("ingresa el nombre del estado numero " + (estado+1));
             nombreEstado[estado] = leer.nextLine();
             for (int ciudad = 0; ciudad == 10 ; ciudad++) {
@@ -118,6 +118,7 @@ public class Iterativas {
                 }
             }
         }
-        System.out.println("la ciudadad de " + ciudadMax + " en el estado de " + estadoMax + " tiene la poblacion mas grande, con una poblacion de " + poblacionMax);
+        System.out.println("la ciudadad de " + ciudadMax + " en el estado de " + estadoMax +
+                        " tiene la poblacion mas grande, con una poblacion de " + poblacionMax);
     }
 }
