@@ -13,7 +13,7 @@ public class Principal{
         Iterativas iterativas = new Iterativas();
 
         /*condicionales.Ejer9();*/
-        iterativas.Ejer1();
+        iterativas.Ejer2();
 
     }
 

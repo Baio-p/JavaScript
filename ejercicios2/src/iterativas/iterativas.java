@@ -62,8 +62,62 @@ public class Iterativas {
                             "\nnumeros impares que ingresaste es de "+promImpar);       
     } 
 
+    /*
+     * Calcular la suma de los n primeros números.
+     */
     public void Ejer2() {
+        System.out.println("hagamos una suma con los numeros que quieras");
         float suma = 0;
-        
+        int contador = 0;
+        System.out.println("ingresa tu primer numero");
+        float numero = leer.nextFloat();
+        do {
+            if (numero != 0) {
+                suma = suma + numero;
+                contador = contador + 1;
+            } else {
+                System.out.println("no puedes sumarle 0 a otro numero");
+            }
+            System.out.println("ingresa otro numero para sumar o 0 para terminar");
+            numero = leer.nextFloat();
+        } while (numero != 0);
+        if (contador > 1) {
+            System.out.println("el resultado de sumar tus " + contador + " numeros es " + suma );
+        } else if (contador == 1) {
+            System.out.println("no se puede hacer la suma con un solo numero :(");
+        } else {
+            System.out.println("no ingresaste ningun numero");
+        }
     }
-} 
+
+    /*
+     * Ejercicio 3
+    Se quiere saber cuál es la ciudad con la población de más personas, 
+    son tres estados con once ciudades, hacer un algoritmo que nos permita saber eso.
+     */
+
+    public void Ejer3() {
+        int poblacionCiudad = 0;
+        int poblacionMax = 0;
+        String estadoMax[] = new String [0];
+        String ciudadMax[] = new String [0];
+        String nombreEstado[] = new String [2];
+        String nombreCiudad[] = new String [10];
+        for (int estado = 0; estado == 2; estado++) {
+            System.out.println("ingresa el nombre del estado numero " + (estado+1));
+            nombreEstado[estado] = leer.nextLine();
+            for (int ciudad = 0; ciudad == 10 ; ciudad++) {
+                System.out.println("ingresa el nombre de su ciudad numero " +(ciudad+1));
+                nombreCiudad[ciudad] = leer.nextLine();
+                System.out.println("ingresa su poblacion");
+                poblacionCiudad = leer.nextInt();
+                if (poblacionCiudad > poblacionMax) {
+                    poblacionMax = poblacionCiudad;
+                    estadoMax[0] = nombreEstado[estado];
+                    ciudadMax[0] = nombreCiudad[ciudad];
+                }
+            }
+        }
+        System.out.println("la ciudadad de " + ciudadMax + " en el estado de " + estadoMax + " tiene la poblacion mas grande, con una poblacion de " + poblacionMax);
+    }
+}
