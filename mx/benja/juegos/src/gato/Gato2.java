@@ -6,9 +6,9 @@ public class Gato2 {
 
     static Scanner leer = new Scanner(System.in);
     static char[][] tablero = {
-        {'r','-','-'},
+        {'-','-','r'},
         {'-','r','-'},
-        {'-','-','r'}
+        {'r','-','-'}
     };
 
     public Gato2() {
@@ -41,7 +41,9 @@ public class Gato2 {
         // [0-0 ,0-1 ,0-2 ]
         // [1-0 ,1-1 , ]
         // [2-0 , , ]
-        int victoria1, victoria2, victoria3;
+        int victoria1; 
+        int victoria3 = 0;
+        int victoria2 = 0;
         for (int fila = 0; fila < tablero.length; fila++) {
             victoria1=0;
             for (int columna = 0; columna < tablero[fila].length; columna++) {
@@ -55,17 +57,21 @@ public class Gato2 {
         }
 
         for (int fila = 0; fila < tablero.length; fila ++) {
-            victoria2 =0;
-            for (int columna =+ fila; columna < tablero.length; columna =- 0) {
-                if (tablero[fila][columna] == figura ){
-                    victoria2++;
-                    if (victoria2==3) {
-                        System.out.println("ganaste");
-                        
-                    }
-                } 
-            }break;
+            if ( tablero [fila][fila] == figura) {
+                victoria2 ++;
+                if (victoria2 == 3){
+                    System.out.println("ganaste");
+                }
+            }
         }
 
+        for (int fila = 0; fila < tablero.length; fila ++) {
+            if ( tablero [(fila -2)*-1][fila] == figura) {
+                victoria3 ++;
+                if (victoria3 == 3){
+                    System.out.println("ganaste");
+                }
+            }
+        }
     }
 }

@@ -10,7 +10,7 @@ public class App {
         char optMenu;
         System.out.println("registremos tu mascota");
         do {
-            registros.add(new RecibiMascota ());
+            registros.add(Utilidades.crearMascota());
             System.out.println("quieres registrar otra mascota ?");
             System.out.println("1.- ingrsar mascota");
             System.out.println("0.- terminar");
