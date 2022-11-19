@@ -1,6 +1,6 @@
 
 
-import iterativas.Iterativas;
+import Iterativas.Iterativas;
 import condicionales.Condicionales;
 
 public class Principal{

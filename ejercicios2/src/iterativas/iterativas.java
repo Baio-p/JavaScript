@@ -1,5 +1,5 @@
 // creamos el package que seria la ruta de donde se va a ejecutar nuestro proyecto
-package iterativas;
+package Iterativas;
 //importamos las clases que vayamos a utilizar para nuestro proyecto definiendo ruta.objeto
 import java.util.Scanner;
 
@@ -54,6 +54,7 @@ public class Iterativas {
                     contImpares = contImpares += 1;
                 }
         }
+        /*comprobar variables */
         float promPar = sumaPares / contPares;
         float promImpar = sumaImpares / contImpares;
 
