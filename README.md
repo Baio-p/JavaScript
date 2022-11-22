@@ -1,6 +1,12 @@
 # Java
 Practicas para Java
 
+Java es un lenguaje de programacion orientado a objetos (POO), osea que es la forma de progrmar modelando los problemas que planteemos 
+en objetos. Es un lenguaje de abstraccion.
+
+Los objetos tienen atributos y comportamintos.
+
+
 Al final de cada instruccion se debe finalizar con ";".
 Java no nescesita identacion; puede correr todo el codigo siempre y cuando esten bien definidos todos los procesos eh instrucciones en 
 el codigo.
