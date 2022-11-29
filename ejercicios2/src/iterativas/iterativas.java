@@ -111,7 +111,7 @@ public class Iterativas {
                 ciudades[estado][ciudad] = leer.nextFloat();
             }
         }
-
+        /*crear objetos */
         for (int i = 0; i < estados.length; i++) {
             System.out.println(estados[i]);
             for (int j = 0; j < ciudades[i].length; j++) {
