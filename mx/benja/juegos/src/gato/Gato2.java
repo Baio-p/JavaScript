@@ -6,9 +6,9 @@ public class Gato2 {
 
     static Scanner leer = new Scanner(System.in);
     static char[][] tablero = {
-        {'-','-','r'},
-        {'-','r','-'},
-        {'r','-','-'}
+        {'-','-','-'},
+        {'r','r','r'},
+        {'-','-','-'}
     };
 
     public Gato2() {

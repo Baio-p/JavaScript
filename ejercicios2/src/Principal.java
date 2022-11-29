@@ -1,7 +1,7 @@
 
 
 import Iterativas.Iterativas;
-import condicionales.Condicionales;
+import Condicionales.Condicionales;
 
 public class Principal{
     public static void main(String[] args) {
@@ -13,8 +13,8 @@ public class Principal{
         Iterativas iterativas = new Iterativas();
 
         /*condicionales.Ejer9();*/
-        iterativas.Ejer2();
-
+        iterativas.Ejer3();
+    
     }
 
 }

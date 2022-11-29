@@ -1,4 +1,4 @@
-package condicionales;
+package Condicionales;
 
 import java.util.Scanner;
 
@@ -176,7 +176,8 @@ debe pagar $5 y si es mayor de 18 años, $10.
 
 /*
  * Ejercicio 9
-La pizzería Planeta ofrece pizzas vegetarianas y no vegetarianas a sus clientes. Los ingredientes para cada tipo de pizza aparecen a continuación.
+La pizzería Planeta ofrece pizzas vegetarianas y no vegetarianas a sus clientes. 
+Los ingredientes para cada tipo de pizza aparecen a continuación.
 
 Vegetarianos: Pimiento y tofu.
 No vegetarianos: Peperoni, Jamón y Salmón.

@@ -38,7 +38,7 @@ public class Iterativas {
 
     public void Ejer1() {
 
-        float numeros[] = new float[9];
+        float numeros[] = new float[10];
         float sumaPares = 0;
         float sumaImpares = 0;
         int contPares = 0;
@@ -98,28 +98,26 @@ public class Iterativas {
      */
 
     public void Ejer3() {
-        int poblacionCiudad = 0;
-        int poblacionMax = 0;
-        String estadoMax[] = new String [1];
-        String ciudadMax[] = new String [1];
-        String nombreEstado[] = new String [2];
-        String nombreCiudad[] = new String [10];
-        for (int estado = 0; estado < 2; estado++) {
-            System.out.println("ingresa el nombre del estado numero " + (estado+1));
-            nombreEstado[estado] = leer.nextLine();
-            for (int ciudad = 0; ciudad == 10 ; ciudad++) {
-                System.out.println("ingresa el nombre de su ciudad numero " +(ciudad+1));
-                nombreCiudad[ciudad] = leer.nextLine();
-                System.out.println("ingresa su poblacion");
-                poblacionCiudad = leer.nextInt();
-                if (poblacionCiudad > poblacionMax) {
-                    poblacionMax = poblacionCiudad;
-                    estadoMax[0] = nombreEstado[estado];
-                    ciudadMax[0] = nombreCiudad[ciudad];
-                }
+        String estados[] = new String[3];
+        float ciudades[][] = new float[3][11];
+        
+        System.out.println(ciudades[0].length);
+        for (int estado = 0; estado < estados.length; estado++) {
+            leer.nextLine();
+            System.out.println("ingresa el nombre del "+(estado+1)+"° estado");
+            estados[estado] = leer.nextLine();
+            for (int ciudad = 0; ciudad < ciudades[estado].length; ciudad++) { 
+                System.out.println("ingresa la "+ (ciudad+1) + "° poblacion");
+                ciudades[estado][ciudad] = leer.nextFloat();
             }
         }
-        System.out.println("la ciudadad de " + ciudadMax + " en el estado de " + estadoMax +
-                        " tiene la poblacion mas grande, con una poblacion de " + poblacionMax);
+
+        for (int i = 0; i < estados.length; i++) {
+            System.out.println(estados[i]);
+            for (int j = 0; j < ciudades[i].length; j++) {
+                System.out.print(ciudades[i][j] + "\t");
+            }
+            System.out.print("\n");
+        }
     }
 }
