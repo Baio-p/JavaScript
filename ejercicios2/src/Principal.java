@@ -1,19 +1,19 @@
 
 
 import Iterativas.Iterativas;
-import Condicionales.Condicionales;
+/*import Condicionales.Condicionales;*/
 
 public class Principal{
     public static void main(String[] args) {
 
         System.out.println("ingresa tu nombre");
-        Condicionales condicionales = new Condicionales("Benjamin");
-        System.out.println(condicionales);
+        /*Condicionales condicionales = new Condicionales("Benjamin");
+        System.out.println(condicionales);*/
 
         Iterativas iterativas = new Iterativas();
 
         /*condicionales.Ejer9();*/
-        iterativas.Ejer3();
+        iterativas.ejer5();
     
     }
 

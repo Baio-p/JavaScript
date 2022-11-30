@@ -99,18 +99,27 @@ public class Iterativas {
 
     public void Ejer3() {
         String estados[] = new String[3];
-        float ciudades[][] = new float[3][11];
-        
-        System.out.println(ciudades[0].length);
-        for (int estado = 0; estado < estados.length; estado++) {
+        int ciudades[][] = new int[3][11];
+        String estadoMax[] = new String[1];
+        int ciudadMax[][] = new int[1][1];
+
+        for (int numEstado = 0; numEstado < estados.length; numEstado++) {
             leer.nextLine();
-            System.out.println("ingresa el nombre del "+(estado+1)+"° estado");
-            estados[estado] = leer.nextLine();
-            for (int ciudad = 0; ciudad < ciudades[estado].length; ciudad++) { 
-                System.out.println("ingresa la "+ (ciudad+1) + "° poblacion");
-                ciudades[estado][ciudad] = leer.nextFloat();
+            System.out.println("ingresa el nombre del "+(numEstado+1)+"° estado");
+            estados[numEstado] = leer.nextLine();
+            for (int numCiudad = 0; numCiudad < ciudades[numEstado].length; numCiudad++) { 
+                System.out.println("ingresa la "+ (numCiudad+1) + "° poblacion");
+                ciudades[numEstado][numCiudad] = leer.nextInt();
+                if (numEstado == 0) {
+                    estadoMax[0] = estados[numEstado];
+                    ciudadMax[0][0] = ciudades[numEstado][numCiudad];
+                } else if (ciudades[numEstado][numCiudad] > ciudadMax[0][0]) {
+                    estadoMax[0] = estados[numEstado];
+                    ciudadMax[0][0] = ciudades[numEstado][numCiudad];
+                }
             }
         }
+        System.out.println("el estado de " + estadoMax[0]+ " con la poblacion de " + ciudadMax[0][0] + " es el mayor.");
         /*crear objetos */
         for (int i = 0; i < estados.length; i++) {
             System.out.println(estados[i]);
@@ -119,5 +128,25 @@ public class Iterativas {
             }
             System.out.print("\n");
         }
+    }
+    /*
+     * Imprimir las tablas de multiplicar de los números del uno al nueve.
+     */
+
+    public void ejer4() {
+        for (int i = 1; i < 10; i++) {
+            for (int j = 1; j < 10; j++) {
+                int resultado = i * j;
+                System.out.println(i +" X "+ j + " = " + resultado +"\n");
+            }
+        }
+    }
+
+    /*
+     * clacular factorial de un numero.
+     */
+
+    public void ejer5() {
+        
     }
 }

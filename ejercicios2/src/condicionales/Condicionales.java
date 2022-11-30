@@ -231,4 +231,3 @@ elegida es vegetariana o no y todos los ingredientes que lleva.
         }
     }
 }
-
