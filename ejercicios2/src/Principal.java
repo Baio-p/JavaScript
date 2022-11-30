@@ -1,7 +1,6 @@
 
 
-import Iterativas.Iterativas;
-/*import Condicionales.Condicionales;*/
+import iterativas.Iterativas;
 
 public class Principal{
     public static void main(String[] args) {
@@ -14,7 +13,6 @@ public class Principal{
 
         /*condicionales.Ejer9();*/
         iterativas.ejer5();
-    
     }
 
 }
