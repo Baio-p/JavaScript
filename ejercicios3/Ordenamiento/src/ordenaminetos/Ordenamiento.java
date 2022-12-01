@@ -42,7 +42,29 @@ public class Ordenamiento {
         }
     }
 
-    static public void quickSort(int[] arreglo) {
+    static public void quickSort(int[] arreglo, int izquierda, int derecha) {
+        
+        int pivote = arreglo[izquierda];
+        int i = izquierda;
+        int d = derecha;
+        int aux;
 
+        while (i < d){
+            while (arreglo[i] <= pivote && i < d) i++;
+            while (arreglo[d] > pivote) d--;
+            if (i < d) {
+                aux = arreglo[i];
+                arreglo[i] = arreglo[d];
+                arreglo[d] = aux;
+            }
+        }
+        arreglo[izquierda] = arreglo[d];
+        arreglo[d]=pivote;
+        if (izquierda < d-1) {
+            quickSort(arreglo, izquierda, d-1);
+        }
+        if (d+1 < derecha) {
+            quickSort(arreglo, d+1, derecha);
+        }
     }
 }

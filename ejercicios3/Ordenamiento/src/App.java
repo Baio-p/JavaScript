@@ -12,9 +12,18 @@ public class App {
         // Ordenamiento.burbuja(listaDesordenada2);
         // System.out.println(Arrays.toString(listaDesordenada2));
 
-        System.out.println(Arrays.toString(listaDesordenada));
-        Ordenamiento.insercion(listaDesordenada);
-        System.out.println(Arrays.toString(listaDesordenada));
-    }
+        // System.out.println(Arrays.toString(listaDesordenada));
+        // Ordenamiento.insercion(listaDesordenada);
+        // System.out.println(Arrays.toString(listaDesordenada));
 
+        System.out.println(Arrays.toString(listaDesordenada));
+        Ordenamiento.quickSort(listaDesordenada, 0, listaDesordenada.length -1);
+        System.out.println(Arrays.toString(listaDesordenada));
+        
+        System.out.println("\n");
+
+        System.out.println(Arrays.toString(listaDesordenada2));
+        Ordenamiento.quickSort(listaDesordenada2, 0, listaDesordenada2.length -1);
+        System.out.println(Arrays.toString(listaDesordenada2));
+    }
 }
