@@ -1,7 +1,15 @@
-import metodoordenamiento.MetodoOrdenamiento;
-
-
-public class App {
+public class MetodoOrdenamiento {
+    
+        public void imprimeArreglo(String mensaje, int[] arreglo){
+            System.out.println(mensaje);
+            for (int i = 0; i < arreglo.length; i++) {
+                System.out.print(arreglo[i] + " ");
+            }
+        }
+    
+        public void saltoLinea() {
+            System.out.println("\n");
+        }
     public static void main(String[] args) {
 
         int[] practica11 = {11,23,9,20};
@@ -23,7 +31,7 @@ public class App {
                     practica11[j+1] = aux;
                     objOrdena.imprimeArreglo("Arreglo modificado: ", practica11);
                     objOrdena.saltoLinea();
-                }
+                } 
             }
         }
         objOrdena.saltoLinea();
