@@ -12,13 +12,9 @@ public class Border extends JFrame {
         // definimos el layout
         setLayout(new BorderLayout());
         // agregamos componentes
-        add("North",new TextField("Norte"));
-        add("South",new TextField("Sur"));
-        add("East",new JButton("Este"));
-        add("West",new JButton("Oeste"));
+
         Label lbl= new Label("Centro");
-        lbl.setAlignment(Label.CENTER);
-        add("Center",lbl);
+        add(lbl);
     }
 
 }
