@@ -6,17 +6,16 @@ import javax.swing.*;
 
 public class VentanaPrincipal extends JFrame {
 
-        JButton pos1 = new JButton("Algo");
-        JButton pos2 = new JButton();
-        JButton pos3 = new JButton();
-        JButton pos4 = new JButton();
-        JButton pos5 = new JButton();
+        JButton texto = new JButton("Algo");
+        JButton resultado = new JButton("RESULTADO");
+        JButton teclas[];
     
     public VentanaPrincipal(String titulo){
         super(titulo);
         setSize(400, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         disenioElementos();
+        System.out.println("Valor de boton:" + teclas[5].getText());
     }
 
     public void disenioElementos (){
@@ -62,24 +61,34 @@ public class VentanaPrincipal extends JFrame {
          */
         condiciones.fill = GridBagConstraints.BOTH;
         // agregamos el elemento a la ventana.
-        add(pos1,condiciones);
-
+        add(verCosas(),condiciones);
         condiciones.gridy = 1;
-        add(pos2,condiciones);
+        add(resultado,condiciones);
         condiciones.gridy = 2;
-        condiciones.weightx = 0.5;
-        condiciones.weighty = 0.5;
-        add(pos3,condiciones);
+        condiciones.weightx = 0.3;
+        condiciones.weighty = 0.3;
+        add(teclado(),condiciones);
     }
 
-    public void teclado() {
-        char teclas[] = {
-            '7','8','9','/','4','5','6','*','1','2','3','-','C','0','.','+'
+    public Container teclado() {
+        String valores[] = {
+            "7","8","9","/","4","5","6","*","1","2","3","-","C","0",".","+"
         };
-        setLayout(new GridLayout());
-        for (int i = 0; i < teclas.length ; i++) {
-            add(new JButton());
-            
+        // solo existe aqui
+        teclas = new JButton[16];
+        Container tec = new Container();
+        tec.setLayout(new GridLayout(4,4));
+        
+        for (int i = 0; i < valores.length ; i++) {
+            teclas[i] = new JButton(valores[i]);
+            tec.add(teclas[i]);
         }
+        return tec;
+    }
+
+    public JTextField verCosas (){
+        JTextField vC = new JTextField();
+        vC.setText("Aqui se puede escribir");;
+        return vC;
     }
 }
