@@ -6,4 +6,4 @@ public class App {
         VentanaPrincipal calculadora = new VentanaPrincipal("Calculadora");
         calculadora.setVisible(true);
     }
-}
+} 

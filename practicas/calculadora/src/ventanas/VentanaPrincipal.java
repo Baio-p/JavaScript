@@ -91,4 +91,6 @@ public class VentanaPrincipal extends JFrame {
         vC.setText("Aqui se puede escribir");;
         return vC;
     }
+
+    
 }
