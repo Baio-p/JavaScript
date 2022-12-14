@@ -1,5 +1,8 @@
 package funciones;
 
+/**
+ * 
+ */
 public class Funciones {
     
     static public void operaciones (char[] arreglo){

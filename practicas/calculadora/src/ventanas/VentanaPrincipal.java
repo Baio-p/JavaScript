@@ -1,23 +1,24 @@
 package ventanas;
 
 import java.awt.*;
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Stack;
-
-import javax.swing.*;
 
 public class VentanaPrincipal extends JFrame implements ActionListener {
 
     JTextField display = new JTextField("0");
     JButton resultado = new JButton("RESULTADO");
     JButton teclas[];
-    String datosUsuario;
+    String datosUsuario = "0";
+    Queue<String> paConvertir = new LinkedList<String>();
+    double rG;
     
     public VentanaPrincipal(String titulo){
         super(titulo);
+        rG = 0.0;
         setSize(400, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         disenioElementos();
@@ -77,7 +78,11 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
         
     }
 
-    public Container crearTeclado() {
+    /**
+     * asdfasdfsadf
+     * @return sadfasdf
+     */
+    private Container crearTeclado() {
         String valores[] = {"7","8","9","/","4","5","6","*","1","2","3","-","C","0",".","+"};
         teclas = new JButton[16];
         Container tec = new Container();
@@ -94,14 +99,17 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == resultado){
-            System.out.println("resultado");
-            System.out.println(datosUsuario);
-            convertirDatos(datosUsuario);
+            
+            resultadoValores(datosUsuario);
+            datosUsuario = Double.toString(rG);
+            display.setText(datosUsuario);
+            rG = 0.0;
         }
         
         for (int i = 0; i < teclas.length; i++) {
             if (e.getSource() == teclas[i]) {
                 System.out.println(teclas[i].getText());
+                datosUsuario = datosUsuario=="0" ? "" : datosUsuario;
                 datosUsuario += teclas[i].getText();
                 display.setText(datosUsuario);
             }
@@ -113,24 +121,75 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
         }
     }
 
-    public void convertirDatos(String datosUsuario) {
-        
-        Queue<String> paConvertir = new LinkedList<String>();
+    /**
+     * 
+     * @param datosUsuario
+     */
+    private void convertirDatos(String datosUsuario) {
         String aux = "";
         char elemento = ' ';
         //26519849
         for (int i = 0; i < datosUsuario.length(); i++) {
             elemento = datosUsuario.charAt(i);
-            if (elemento != '+'){
+            if (elemento != '+' && elemento != '-' &&  elemento != '*' && elemento != '/'){
                 aux += elemento;
-            } else {
+            } else{
                 paConvertir.add(aux);
                 paConvertir.add(Character.toString(elemento));
                 aux ="";
             }
         }
-        paConvertir.add(aux);
+        if(aux != ""){
+            paConvertir.add(aux);
+        }
         System.out.println(paConvertir);
+    }
+
+    /**
+     * 
+     * @param datosUsuario
+     */
+    private void resultadoValores(String datosUsuario){ //[56,*,5,+,7]
+        convertirDatos(datosUsuario);
+        suma(Double.parseDouble(paConvertir.poll()));
+        while(!paConvertir.isEmpty()){
+            switch  (paConvertir.poll()){
+                case "+":
+                    suma(Double.parseDouble(paConvertir.poll()));
+                    break;
+                case "-":
+                    resta(Double.parseDouble(paConvertir.poll()));
+                    break;
+                case "*":
+                    multiplica(Double.parseDouble(paConvertir.poll()));
+                    break;
+                case "/":
+                    divide(Double.parseDouble(paConvertir.poll()));
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
+    /**
+     * 
+     * @param parseDouble
+     */
+    private void divide(double parseDouble) {
+        rG /= parseDouble;
+    }
+
+    private void multiplica(double parseDouble) {
+        rG *= parseDouble;
+    }
+
+    private void resta(double parseDouble) {
+        rG -= parseDouble;
+    }
+
+    private void suma(double parseDouble) {
+        rG += parseDouble;
     }
 }
 
