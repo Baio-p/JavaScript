@@ -1,21 +1,26 @@
 package ventanas;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
 
 import javax.swing.*;
 
-public class VentanaPrincipal extends JFrame {
+public class VentanaPrincipal extends JFrame implements ActionListener {
 
-        JButton texto = new JButton("Algo");
-        JButton resultado = new JButton("RESULTADO");
-        JButton teclas[];
+    JTextField display = new JTextField("0");
+    JButton resultado = new JButton("RESULTADO");
+    JButton teclas[];
+    String datosUsuario;
     
     public VentanaPrincipal(String titulo){
         super(titulo);
         setSize(400, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         disenioElementos();
-        System.out.println("Valor de boton:" + teclas[5].getText());
     }
 
     public void disenioElementos (){
@@ -61,36 +66,75 @@ public class VentanaPrincipal extends JFrame {
          */
         condiciones.fill = GridBagConstraints.BOTH;
         // agregamos el elemento a la ventana.
-        add(verCosas(),condiciones);
+        add(display,condiciones);
         condiciones.gridy = 1;
         add(resultado,condiciones);
         condiciones.gridy = 2;
         condiciones.weightx = 0.3;
         condiciones.weighty = 0.3;
-        add(teclado(),condiciones);
+        add(crearTeclado(),condiciones);
+        resultado.addActionListener(this);
+        
     }
 
-    public Container teclado() {
-        String valores[] = {
-            "7","8","9","/","4","5","6","*","1","2","3","-","C","0",".","+"
-        };
-        // solo existe aqui
+    public Container crearTeclado() {
+        String valores[] = {"7","8","9","/","4","5","6","*","1","2","3","-","C","0",".","+"};
         teclas = new JButton[16];
         Container tec = new Container();
         tec.setLayout(new GridLayout(4,4));
         
         for (int i = 0; i < valores.length ; i++) {
             teclas[i] = new JButton(valores[i]);
+            teclas[i].addActionListener(this);
             tec.add(teclas[i]);
         }
         return tec;
     }
+    
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource() == resultado){
+            System.out.println("resultado");
+            System.out.println(datosUsuario);
+            convertirDatos(datosUsuario);
+        }
+        
+        for (int i = 0; i < teclas.length; i++) {
+            if (e.getSource() == teclas[i]) {
+                System.out.println(teclas[i].getText());
+                datosUsuario += teclas[i].getText();
+                display.setText(datosUsuario);
+            }
+        }
 
-    public JTextField verCosas (){
-        JTextField vC = new JTextField();
-        vC.setText("Aqui se puede escribir");;
-        return vC;
+        if (e.getSource() == teclas[12]) {
+            datosUsuario = "0";
+            display.setText(datosUsuario);
+        }
     }
 
-    
+    public void convertirDatos(String datosUsuario) {
+        
+        Queue<String> paConvertir = new LinkedList<String>();
+        String aux = "";
+        char elemento = ' ';
+        //26519849
+        for (int i = 0; i < datosUsuario.length(); i++) {
+            elemento = datosUsuario.charAt(i);
+            if (elemento != '+'){
+                aux += elemento;
+            } else {
+                paConvertir.add(aux);
+                paConvertir.add(Character.toString(elemento));
+                aux ="";
+            }
+        }
+        paConvertir.add(aux);
+        System.out.println(paConvertir);
+    }
 }
+
+
+
+
+
