@@ -1,5 +1,5 @@
 package ventanas;
-
+// importammos las librerias de java para poder utilizar sus clases y funciones.
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -7,29 +7,34 @@ import java.awt.event.ActionListener;
 import java.util.LinkedList;
 import java.util.Queue;
 
+// esta clase extiende de Jframe por lo que heredara los metodos de para la imterfaz.
+// esta clase puede recibir eventos para interpretarlos como acciones por que implementa ActionListener.
 public class VentanaPrincipal extends JFrame implements ActionListener {
+
 
     JTextField display = new JTextField("0");
     JButton resultado = new JButton("RESULTADO");
     JButton teclas[];
     String datosUsuario = "0";
-    Queue<String> paConvertir = new LinkedList<String>();
-    double rG;
+    Queue<String> valores = new LinkedList<String>();
+    double rG = 0.0;
     
+    //nuestro constructor contiene los metodos y funciones para iniciar nuestra ventana.
     public VentanaPrincipal(String titulo){
+        
+        // este es el titulo que recibira nuestra ventana.
         super(titulo);
-        rG = 0.0;
+        // tamaño de la ventana (ancho,alto).
         setSize(400, 500);
+        //operacion por defecto para cerrar.
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         disenioElementos();
     }
 
     public void disenioElementos (){
-        // definimos el tipo de layoot para acomodar los elementos
-        /*
-        GridLayout crea un enrrejado que se puede manipular en cantidad de celdas,
-        tamaño de lasceldas y en cual celda pondremos cada elemeto.
-        */ 
+        
+        // definimos el tipo de layoot para acomodar los elementos. 
         setLayout(new GridBagLayout());
         
         /*
@@ -53,10 +58,6 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
          * en la columna 4.
          */
         
-        /*
-         * definimos el tamaño proporcional del elemento con respecto a
-         * nuestra ventana donde 1.0 es el tamaño completo de la misma.
-         */
         // definimos el ancho proporcional en la ventana.
         condiciones.weightx = 0.1;
         // definimos el alto proporcional en la ventana.
@@ -79,8 +80,9 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
     }
 
     /**
-     * asdfasdfsadf
-     * @return sadfasdf
+     * Crea botones asignando un valor a cada uno, la accion para poder
+     * escucharlos y los agrega a un contendor.
+     * @return Contendor de botones.
      */
     private Container crearTeclado() {
         String valores[] = {"7","8","9","/","4","5","6","*","1","2","3","-","C","0",".","+"};
@@ -96,10 +98,13 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
         return tec;
     }
     
+    /**
+     * se invoka cuando se procesa un evento y ejecuta su metodo correspiente.
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
+        
         if(e.getSource() == resultado){
-            
             resultadoValores(datosUsuario);
             datosUsuario = Double.toString(rG);
             display.setText(datosUsuario);
@@ -108,7 +113,6 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
         
         for (int i = 0; i < teclas.length; i++) {
             if (e.getSource() == teclas[i]) {
-                System.out.println(teclas[i].getText());
                 datosUsuario = datosUsuario=="0" ? "" : datosUsuario;
                 datosUsuario += teclas[i].getText();
                 display.setText(datosUsuario);
@@ -122,49 +126,48 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
     }
 
     /**
-     * 
-     * @param datosUsuario
+     * Recibe un String separando cada caracter para concatenar valores y diferenciarlos de
+     * operadores.
+     * @param String datosUsuario
      */
     private void convertirDatos(String datosUsuario) {
         String aux = "";
         char elemento = ' ';
-        //26519849
         for (int i = 0; i < datosUsuario.length(); i++) {
             elemento = datosUsuario.charAt(i);
             if (elemento != '+' && elemento != '-' &&  elemento != '*' && elemento != '/'){
                 aux += elemento;
-            } else{
-                paConvertir.add(aux);
-                paConvertir.add(Character.toString(elemento));
+            } else {
+                valores.add(aux);
+                valores.add(Character.toString(elemento));
                 aux ="";
             }
         }
         if(aux != ""){
-            paConvertir.add(aux);
+            valores.add(aux);
         }
-        System.out.println(paConvertir);
     }
 
     /**
-     * 
+     * Recibe un String para realizar operaciones segun su contenido.
      * @param datosUsuario
      */
-    private void resultadoValores(String datosUsuario){ //[56,*,5,+,7]
+    private void resultadoValores(String datosUsuario){
         convertirDatos(datosUsuario);
-        suma(Double.parseDouble(paConvertir.poll()));
-        while(!paConvertir.isEmpty()){
-            switch  (paConvertir.poll()){
+        suma(Double.parseDouble(valores.poll()));
+        while(!valores.isEmpty()){
+            switch  (valores.poll()){
                 case "+":
-                    suma(Double.parseDouble(paConvertir.poll()));
+                    suma(Double.parseDouble(valores.poll()));
                     break;
                 case "-":
-                    resta(Double.parseDouble(paConvertir.poll()));
+                    resta(Double.parseDouble(valores.poll()));
                     break;
                 case "*":
-                    multiplica(Double.parseDouble(paConvertir.poll()));
+                    multiplica(Double.parseDouble(valores.poll()));
                     break;
                 case "/":
-                    divide(Double.parseDouble(paConvertir.poll()));
+                    divide(Double.parseDouble(valores.poll()));
                     break;
                 default:
                     break;
@@ -173,21 +176,33 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
     }
 
     /**
-     * 
+     * Divide un resultado global entre un valor double obtenido.
      * @param parseDouble
      */
     private void divide(double parseDouble) {
         rG /= parseDouble;
     }
 
+    /**
+     * Multiplica un resultado global por un valor double obtenido.
+     * @param parseDouble
+     */
     private void multiplica(double parseDouble) {
         rG *= parseDouble;
     }
 
+    /**
+     * Resta un resultado global menos un valor double obtenido.
+     * @param parseDouble
+     */
     private void resta(double parseDouble) {
         rG -= parseDouble;
     }
 
+    /**
+     * Suma un resultado global más un valor double obtenido.
+     * @param parseDouble
+     */
     private void suma(double parseDouble) {
         rG += parseDouble;
     }
